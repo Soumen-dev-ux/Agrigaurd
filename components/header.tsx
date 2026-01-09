@@ -31,9 +31,9 @@ export default function Header() {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center shadow-sm">
               <Leaf className="w-6 h-6 text-white" />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold text-foreground">{t.appTitle}</h1>
-              <p className="text-xs text-muted-foreground">{t.appSubtitle}</p>
+            <div>
+              <h1 className="text-lg sm:text-2xl font-bold text-foreground">{t.appTitle}</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">{t.appSubtitle}</p>
             </div>
           </div>
 
