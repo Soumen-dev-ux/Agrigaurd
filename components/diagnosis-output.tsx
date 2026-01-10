@@ -294,32 +294,20 @@ export default function DiagnosisOutput({ diagnosis, language }: DiagnosisOutput
       </div>
 
       {sections.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Top Row: Issue (Left) & Severity (Right) */}
-          <div className="space-y-6 md:col-span-1">
-            {issueSections.length > 0 ? issueSections.map(s => renderSection(s)) : null}
-            {issueSections.length === 0 && otherSections.length > 0 && otherSections[0].title === "Overview" && renderSection(otherSections[0])}
-          </div>
+        <div className="space-y-6">
+          {/* Issue Section */}
+          {issueSections.map(s => renderSection(s))}
 
-          <div className="space-y-6 md:col-span-1">
-            {severitySections.length > 0 ? severitySections.map(s => renderSection(s)) : (
-              // Suggestion: if no severity, maybe show first recovery or generic info
-              null
-            )}
-            {/* If we have an odd layout, we could put something here */}
-          </div>
+          {/* Severity Section */}
+          {severitySections.map(s => renderSection(s))}
 
-          {/* Full Width Treatment Plan */}
-          {treatmentSections.length > 0 && (
-            <div className="md:col-span-2">
-              {treatmentSections.map(s => renderSection(s, "border-l-4 border-l-blue-500 bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/10 dark:to-background"))}
-            </div>
-          )}
+          {/* Treatment Plan */}
+          {treatmentSections.map(s => renderSection(s, "border-l-4 border-l-blue-500 bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/10 dark:to-background"))}
 
-          {/* Remaining Sections (Side by Side) */}
+          {/* Remaining Sections */}
           {otherSections.map(s => {
             if (s.title === "Overview" && issueSections.length === 0) return null;
-            return renderSection(s, "md:col-span-1");
+            return renderSection(s);
           })}
         </div>
       ) : (
@@ -336,6 +324,6 @@ export default function DiagnosisOutput({ diagnosis, language }: DiagnosisOutput
           {t.disclaimer}
         </p>
       </div>
-    </div>
+    </div >
   )
 }

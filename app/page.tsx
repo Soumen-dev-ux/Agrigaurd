@@ -88,9 +88,9 @@ function PageContent() {
     <main className="min-h-screen bg-background flex flex-col">
       <Header />
       <div className="flex-1 max-w-7xl mx-auto px-4 py-8 md:py-12 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Input Section */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:col-span-2">
             <InputSection
               cropDescription={cropDescription}
               setCropDescription={setCropDescription}
@@ -125,7 +125,7 @@ function PageContent() {
           </div>
 
           {/* Output Section */}
-          <div className="min-h-[500px]">
+          <div className="min-h-[500px] lg:col-span-3">
             {isAnalyzing ? (
               <div className="sticky top-8 bg-card/50 backdrop-blur-sm border border-border rounded-xl p-8 flex flex-col items-center justify-center h-[500px] shadow-sm">
                 <div className="relative">

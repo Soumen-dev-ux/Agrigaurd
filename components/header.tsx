@@ -32,7 +32,9 @@ export default function Header() {
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-lg sm:text-2xl font-bold text-foreground">{t.appTitle}</h1>
+              <h1 className="text-lg sm:text-2xl font-bold text-foreground">
+                {t.appTitle} <span className="ml-1">🌿</span>
+              </h1>
               <p className="text-xs text-muted-foreground hidden sm:block">{t.appSubtitle}</p>
             </div>
           </div>
