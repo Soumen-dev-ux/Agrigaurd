@@ -67,15 +67,15 @@ export function VoiceAssistant() {
     }
   }, [currentLanguage])
 
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
   // Auto-scroll to bottom
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
   useEffect(() => {
-    if (scrollAreaRef.current) {
-      // Need to target the viewport inside scroll area if possible, or just the div itself
-      const scrollContainer = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]');
-      if (scrollContainer) {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight
-      }
-    }
+    scrollToBottom()
   }, [messages])
 
 
@@ -310,6 +310,7 @@ export function VoiceAssistant() {
                         </div>
                       </div>
                     )}
+                    <div ref={messagesEndRef} />
                   </div>
                 </ScrollArea>
               </CardContent>
