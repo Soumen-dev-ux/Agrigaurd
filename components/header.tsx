@@ -4,6 +4,8 @@ import { Leaf, Globe } from "lucide-react"
 import { useLanguage } from "@/hooks/use-language"
 import { translations, type Language } from "@/lib/translations"
 
+import WeatherWidget from "./weather-widget"
+
 export default function Header() {
   const { language, setLanguage } = useLanguage()
 
@@ -39,21 +41,25 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 bg-input border border-border rounded-lg p-1">
-            <Globe className="w-5 h-5 text-muted-foreground ml-2" />
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value as Language)}
-              className="px-2 py-2 bg-transparent text-sm text-foreground focus:outline-none cursor-pointer font-medium"
-              aria-label="Select language"
-              title={`Current: ${languages.find((l) => l.code === language)?.region || "English"}`}
-            >
-              {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
+          <div className="flex items-center gap-3">
+            <WeatherWidget />
+            
+            <div className="flex items-center gap-2 bg-input border border-border rounded-lg p-1">
+              <Globe className="w-5 h-5 text-muted-foreground ml-2" />
+              <select
+                value={language}
+                onChange={(e) => setLanguage(e.target.value as Language)}
+                className="px-2 py-2 bg-transparent text-sm text-foreground focus:outline-none cursor-pointer font-medium"
+                aria-label="Select language"
+                title={`Current: ${languages.find((l) => l.code === language)?.region || "English"}`}
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
       </div>
