@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey)
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" })
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" })
 
     const systemPrompt = `You are a helpful and knowledgeable agricultural assistant for the AgriGuard application. 
     Your goal is to assist farmers and users with questions related to agriculture, crops, plant diseases, farming techniques, and weather.
